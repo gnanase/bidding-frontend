@@ -17,7 +17,11 @@ class Users extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		
+		//if not login redirect to home
+		if($this->session->userdata('logged_in') == false)
+		{
+			redirect(base_url().'login/', 'refresh');
+		}
 		//load login model
 		$this->load->model('users_model');
 	
@@ -52,7 +56,7 @@ class Users extends CI_Controller {
 							'rules' => 'trim|required|alpha_numeric|min_length[3]|max_length[30]'),
 					array('field' => 'email',
 							'label' => 'Email',
-							'rules' => 'trim|required|min_length[3]|max_length[80]|is_unique[users.email]'),
+							'rules' => 'trim|required|valid_email|min_length[3]|max_length[80]|is_unique[users.email]'),
 					array('field' => 'password',
 							'label' => 'Password',
 							'rules' => 'trim|required|min_length[3]|max_length[15]'),
@@ -95,6 +99,7 @@ class Users extends CI_Controller {
 	
 	public function edit($uid){
 		$data['siteTitle'] = 'Users - '.SITE_NAME;
+		$data['ErrorMessages'] = '';
 		
 		//if set post
 		if (($this->input->server('REQUEST_METHOD') == 'POST'))
@@ -105,7 +110,7 @@ class Users extends CI_Controller {
 							'rules' => 'trim|required|alpha_numeric|min_length[3]|max_length[30]'),
 					array('field' => 'email',
 							'label' => 'Email',
-							'rules' => 'trim|required|min_length[3]|max_length[80]|callback_check_unique_useremail'),
+							'rules' => 'trim|required|valid_email|min_length[3]|max_length[80]|callback_check_unique_useremail'),
 					array('field' => 'password',
 							'label' => 'Password',
 							'rules' => 'trim|required|min_length[3]|max_length[15]'),
@@ -127,8 +132,16 @@ class Users extends CI_Controller {
 			{
 				if( $this->users_model->add_user($_POST, $uid))
 				{
+					$validUser = $this->users_model->get_users_details( $uid );
+					$session=array(
+							'user_id'	=>	$validUser['user_id'],
+							'user_name'	=>	$validUser['name'],
+							'mail'		=>	$validUser['email'],
+							'logged_in'	=>	true
+					);
+					$this->session->set_userdata($session);
 					$this->session->set_flashdata('SucMessage',USERS_UPDATE_SUS);
-					redirect(base_url().'users/edit/'.$uid.'/','refresh');
+					redirect(base_url().'users/','refresh');
 				}
 			}
 		}

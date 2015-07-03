@@ -41,6 +41,7 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 /* Location: ./application/config/constants.php */
 
 define('SITE_NAME', 'Bidding');
+define('PRODUCT_IMAGE_PATH', 'http://localhost/bidding/uploads/products/');
 define('INVALID_CREDENTIALS', 'Invalid credentials');
 define('PROJECT_PATH', '/home/innoppl/public_html/bidding/');
 define('ACCOUNT_DEACTIVE', 'Your account has been deactivated');
@@ -48,3 +49,4 @@ define('USERS_REG_SUS', 'User has been registered successfully');
 define('USER_EMAIL_ALREADY_EXIST','Email already exist');
 define('INVALID_EMAIL', 'Invalid mail id');
 define('USERS_UPDATE_SUS', 'User has been updated successfully');
+define('BID_ADD_SUS', 'Bid has been added successfully');

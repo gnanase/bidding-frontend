@@ -19,12 +19,14 @@ class Dashboard extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('product_model');
 	}
 	
 	
 	public function index()
 	{
 		$data['siteTitle'] = 'Dashboard - '.SITE_NAME;	
+		$data['product_list']=$this->product_model->products_list();
 		$this->load->view('frontend/header',$data);	
 		$this->load->view('frontend/dashboard',$data);
 		$this->load->view('frontend/footer');
