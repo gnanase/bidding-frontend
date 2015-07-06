@@ -67,8 +67,8 @@
 								<?php if($this->session->userdata('logged_in') == true) {	?>
 									<li><a href="<?php  echo base_url(); ?>users"><i class="fa fa-user"></i> <?php echo $this->session->userdata('user_name'); ?></a></li>
 								<?php } ?>
-								<li><a href="#"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="#"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<!-- <li><a href="#"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+								<li><a href="#"><i class="fa fa-shopping-cart"></i> Cart</a></li> -->
 								<?php if($this->session->userdata('logged_in') == false)
 									{
 								?>

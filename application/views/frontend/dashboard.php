@@ -95,45 +95,23 @@
 						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner">
 								<div class="item active">	
+									<?php foreach($winners_list as $wlist) { ?>
 									<div class="col-sm-4">
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-													<img src="<?php echo base_url(); ?>assets/images/home/recommend1.jpg" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+													<img style="width:155px; height:128px;" src="<?php echo PRODUCT_IMAGE_PATH.$wlist['image']; ?>" alt="" />
+													<h2><?php echo $wlist['pname']; ?></h2>
+													<p>Winning Amount : $<?php echo $wlist['amount']; ?></p>
+													<p>Winner : <?php echo $wlist['uname']; ?></p>
+													
 												</div>
 												
 											</div>
 										</div>
 									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="<?php echo base_url(); ?>assets/images/home/recommend2.jpg" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-												</div>
-												
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="<?php echo base_url(); ?>assets/images/home/recommend3.jpg" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-												</div>
-												
-											</div>
-										</div>
-									</div>
+									<?php } ?>
+									
 								</div>
 								<div class="item">	
 									<div class="col-sm-4">
@@ -143,7 +121,7 @@
 													<img src="<?php echo base_url(); ?>assets/images/home/recommend1.jpg" alt="" />
 													<h2>$56</h2>
 													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+													
 												</div>
 												
 											</div>
@@ -156,7 +134,7 @@
 													<img src="<?php echo base_url(); ?>assets/images/home/recommend2.jpg" alt="" />
 													<h2>$56</h2>
 													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+													
 												</div>
 												
 											</div>
@@ -169,7 +147,7 @@
 													<img src="<?php echo base_url(); ?>assets/images/home/recommend3.jpg" alt="" />
 													<h2>$56</h2>
 													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+													
 												</div>
 												
 											</div>

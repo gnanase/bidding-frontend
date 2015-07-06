@@ -20,6 +20,7 @@ class Dashboard extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('product_model');
+		$this->load->model('bidding_model');
 	}
 	
 	
@@ -27,6 +28,7 @@ class Dashboard extends CI_Controller {
 	{
 		$data['siteTitle'] = 'Dashboard - '.SITE_NAME;	
 		$data['product_list']=$this->product_model->products_list();
+		$data['winners_list']=$this->bidding_model->recent_winners();
 		$this->load->view('frontend/header',$data);	
 		$this->load->view('frontend/dashboard',$data);
 		$this->load->view('frontend/footer');

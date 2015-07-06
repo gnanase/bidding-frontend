@@ -56,16 +56,18 @@
 									<p>minimum price : $<?php echo $product_details['min_price']; ?></p>
 									<p>bid fee : $<?php echo $product_details['bid_fee']; ?></p>									
 								</span>
-								<span>	
+								<span style="width: 100%; display: block;">	
 									
-									<form method="post" action="" style="float: left;"> 
+									<form id="bidadd" method="post" action="" style="float: left;"> 
 										<label style="float: left; margin-top: 5px;">Bid Amount:</label>
-										<input type="text" name="bid" onkeypress="return isNumber(event)"/>
-										<input type="hidden" name="pid" value="<?php echo $product_details['product_id']; ?>"/>
-										<button type="submit" class="btn btn-fefault cart">
-											<i class="fa fa-shopping-cart"></i>
-											Bid
-										</button>
+										<div class="form-group" style="float: left;">
+											<input type="text" name="bid" onkeypress="return isNumber(event)"/>
+											<input type="hidden" name="pid" value="<?php echo $product_details['product_id']; ?>"/>
+											<button type="submit" class="btn btn-fefault cart">
+												<i class="fa fa-shopping-cart"></i>
+												Bid
+											</button>
+										</div>
 									</form>
 									<div style="clear:both; float:left">
 									<?php if (isset($ErrorMessages) && $ErrorMessages != NULL){

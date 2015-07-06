@@ -78,4 +78,10 @@ class Bidding extends CI_Controller {
 		$this->load->view('frontend/footer');
 	}
 	
+	public function bid_winner(){
+		$data['siteTitle'] = 'Bidding - '.SITE_NAME;
+		$data['ErrorMessages'] = '';
+		$pid=$this->bidding_model->winner();
+	}
+	
 }
